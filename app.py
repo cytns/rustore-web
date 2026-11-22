@@ -1,3 +1,6 @@
+import sqlite3
+from pathlib import Path
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -5,11 +8,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    apps = [
-        {"name": "МАКС", "rating": "4,2", "icon": "max.webp", "category": "Общение", "url": "https://www.rustore.ru/catalog/app/ru.oneme.app"},
-        {"name": "VK Видео", "rating": "4,6", "icon": "vk-video.webp", "category": "Развлечения", "url": "https://www.rustore.ru/catalog/app/com.vk.vkvideo"},
-        {"name": "ВКонтакте", "rating": "4,2", "icon": "vk.webp", "category": "Общение", "url": "https://www.rustore.ru/catalog/app/com.vkontakte.android"},
-    ]
+    connection = sqlite3.connect(Path(__file__).parent / "apps.db")
+    connection.row_factory = sqlite3.Row
+    apps = connection.execute("SELECT * FROM apps ORDER BY id").fetchall()
+    connection.close()
+
     return render_template("index.html", apps=apps)
 
 

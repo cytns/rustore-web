@@ -17,7 +17,7 @@
         <div class="apps">
             {% for app in apps %}
             <a class="card" href="{{ app.url }}">
-                <img class="app-icon" src="{{ url_for('static', filename=app.icon) }}" alt="">
+                <img class="app-icon" src="{{ app.icon }}" alt="">
                 <h2>{{ app.name }}</h2>
                 <p>{{ app.category }}</p>
                 <span class="rating">★ {{ app.rating }}</span>
