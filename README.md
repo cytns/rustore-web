@@ -58,3 +58,7 @@ python app.py
 ```bash
 python -m unittest -v
 ```
+
+## Попробовать онлайн
+
+https://rustore-web.onrender.com/
