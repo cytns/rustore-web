@@ -8,5 +8,12 @@
 <body>
     <h1>Витрина приложений</h1>
     <p>Подборка приложений из RuStore</p>
+
+    <h2>Приложения</h2>
+    <ul>
+        {% for app in apps %}
+        <li><a href="{{ app.url }}">{{ app.name }}</a> - {{ app.category }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
