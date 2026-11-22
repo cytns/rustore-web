@@ -58,18 +58,25 @@ h1 {
     text-decoration: none;
 }
 
+.app-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
 .card h2 {
     margin: 0 0 8px;
     font-size: 20px;
 }
 
 .card p {
-    margin: 0 0 24px;
+    margin: 0 0 12px;
     color: #777;
 }
 
-.card span {
-    color: #0077ff;
+.rating {
+    color: #555;
 }
 
 .card:hover {

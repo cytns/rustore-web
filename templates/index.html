@@ -17,9 +17,10 @@
         <div class="apps">
             {% for app in apps %}
             <a class="card" href="{{ app.url }}">
+                <img class="app-icon" src="{{ url_for('static', filename=app.icon) }}" alt="">
                 <h2>{{ app.name }}</h2>
                 <p>{{ app.category }}</p>
-                <span>Открыть в RuStore →</span>
+                <span class="rating">★ {{ app.rating }}</span>
             </a>
             {% endfor %}
         </div>
