@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Витрина приложений</title>
+    <title>Витрина топ-приложений</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Витрина приложений</h1>
-    <p>Подборка приложений из RuStore</p>
+    <header class="header">
+        <img class="logo" src="{{ url_for('static', filename='rustore-logo.svg') }}" alt="RuStore">
+        <a class="button" href="https://www.rustore.ru/catalog/all">Перейти в оригинальный RuStore</a>
+    </header>
 
-    <h2>Приложения</h2>
-    <ul>
-        {% for app in apps %}
-        <li><a href="{{ app.url }}">{{ app.name }}</a> - {{ app.category }}</li>
-        {% endfor %}
-    </ul>
+    <main>
+        <h1>Витрина топ-приложений</h1>
+        <div class="apps">
+            {% for app in apps %}
+            <a class="card" href="{{ app.url }}">
+                <h2>{{ app.name }}</h2>
+                <p>{{ app.category }}</p>
+                <span>Открыть в RuStore →</span>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>Сделано в рамках практического проекта</footer>
 </body>
 </html>
